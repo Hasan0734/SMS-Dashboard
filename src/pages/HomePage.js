@@ -12,6 +12,7 @@ import AdmintForm from '../components/AdmintForm/AdminForm';
 import StudentPromotion from '../components/StudentPromotion/StudentPromotion';
 import TeacherList from '../components/TeacherList/TeacherList';
 import TeacherDetails from '../components/TeacherDetails/TeacherDetails';
+import AddTeacher from '../components/AddTeacher/AddTeacher';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -52,6 +53,9 @@ const HomePage = () => {
       case 'teacher_details':
         dispatch(sidebarToggled())
         return <TeacherDetails />
+      case 'add_teacher':
+        dispatch(sidebarToggled())
+        return <AddTeacher />
 
       case 'linked_devices':
         dispatch(sidebarToggled())

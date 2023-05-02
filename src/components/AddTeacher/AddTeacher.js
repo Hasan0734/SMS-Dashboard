@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import InputText from '../inputs/InputText';
 
 import ListboxSelect from '../ui/ListboxSelect';
-import { addStudentSchema } from '../../schema/admintSchema';
+import { addTeacherSchema } from '../../schema/addTeacherSchema';
 
 const classes = [
   { label: 'One', value: 'ONE' },
@@ -25,60 +25,44 @@ const sections = [
   { label: 'D', value: 'D' },
 ];
 
-
-const AdmintForm = () => {
+const AddTeacher = () => {
   function addStudentHandler(values, { resetForm }) {
     alert(JSON.stringify(values));
     // resetForm()
   }
 
-  const initialValues={
+  const initialValues = {
     firstName: '',
     lastName: '',
     class: '',
     section: '',
     gender: '',
     DOB: '',
-    roll: '',
-    admissionNo: '',
+    id: '',
+    subject: '',
     religion: '',
     email: '',
-    studentPhoto: '',
-    fatherName: '',
-    motherName: '',
-    fatherOccupation: '',
-    motherOccupation: '',
     phone: '',
-    nationality: '',
-    presentAddress: '',
-    permanentAddress: '',
-    parentPhoto: ''
-  }
-  
+    address: '',
+    photo: '',
+  };
+
   return (
     <div className='mt-5 card space-y-4'>
       <div className='border-b border-gray-200 dark:border-gray-500 p-4'>
-        <h2 className='font-semibold text-lg'>Add Student Form</h2>
+        <h2 className='font-semibold text-lg'>Teacher Information</h2>
       </div>
       <div className='p-5'>
         {/* Setup Fromik */}
         <Formik
           initialValues={initialValues}
-          validationSchema={addStudentSchema}
+            validationSchema={addTeacherSchema}
           onSubmit={addStudentHandler}
-        
         >
-          {(formik, errors) => (
+          {(formik) => (
             <form onSubmit={formik.handleSubmit} className='w-full'>
-            {/* student info */}
-              <div className=''>
-                <h3
-                  className='font-semibold text-xl relative 
-              after:absolute after:w-10 after:h-1 after:bg-[#a3adc2]  after:-bottom-2 after:left-0'
-                >
-                  Student Information
-                </h3>
-                <div className=' gap-8 mt-8 grid grid-cols-3 xl:grid-cols-4'>
+        
+                <div className=' gap-8 grid grid-cols-3 xl:grid-cols-4'>
                   <InputText
                     value={formik.values.firstName}
                     error={formik.errors.firstName}
@@ -86,7 +70,6 @@ const AdmintForm = () => {
                     label='First Name'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.lastName}
@@ -95,7 +78,6 @@ const AdmintForm = () => {
                     label='Last Name'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
 
                   <ListboxSelect
@@ -138,31 +120,32 @@ const AdmintForm = () => {
                     type='date'
                     placeholder='dd / mm / yyyy'
                     onChange={formik.handleChange}
-                 
                   />
                   <InputText
-                    value={formik.values.roll}
-                    error={formik.errors.roll}
-                    name='roll'
-                    label='Roll'
+                    value={formik.values.id}
+                    error={formik.errors.id}
+                    name='id'
+                    label='ID No'
                     placeholder=''
-                    type="number"
+                    type='number'
                     onChange={formik.handleChange}
-                 
                   />
 
-
-
-                  <InputText
-                    value={formik.values.admissionNo}
-                    error={formik.errors.admissionNo}
-                    name='admissionNo'
-                    label='Admission No'
-                    placeholder=''
-                    type="number"
-                    onChange={formik.handleChange}
-                   
+                  <ListboxSelect
+                    options={[
+                      { label: 'Math', value: 'MATH' },
+                      { label: 'English', value: 'ENGLISH' },
+                      { label: 'BANGLA', value: 'BANGLA' },
+                      { label: 'Science', value: 'SCIENCE' },
+                    ]}
+                    label='Subject'
+                    handleChange={formik.setFieldValue}
+                    value={formik.values.subject}
+                    name='subject'
+                    error={formik.errors.subject}
+                    placeholder='Please Select Subject'
                   />
+
                   <InputText
                     value={formik.values.religion}
                     error={formik.errors.religion}
@@ -170,7 +153,6 @@ const AdmintForm = () => {
                     label='Religion'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.email}
@@ -179,118 +161,34 @@ const AdmintForm = () => {
                     label='E-mail'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
-                  />
-                  <InputText
-                    value={formik.values.studentPhoto}
-                    error={formik.errors.studentPhoto}
-                    name='studentPhoto'
-                    label='Student Photo (150px X 150px)'
-                    placeholder=''
-                    type={'file'}
-                    onChange={formik.handleChange}
-                    accept="image/png, image/jpeg, image/jpg"
-                  
-                  />
-                </div>
-              </div>
-              {/* parent info */}
-              <div className='mt-5'>
-                <h3
-                  className='font-semibold text-xl relative 
-              after:absolute after:w-10 after:h-1 after:bg-[#a3adc2]  after:-bottom-2 after:left-0'
-                >
-                  Parent Information
-                </h3>
-                <div className='gap-8 mt-8 grid grid-cols-3 xl:grid-cols-4 '>
-                  <InputText
-                    value={formik.values.fatherName}
-                    error={formik.errors.fatherName}
-                    name='fatherName'
-                    label='Father Name'
-                    placeholder=''
-                    onChange={formik.handleChange}
-                 
-                  />
-                  <InputText
-                    value={formik.values.motherName}
-                    error={formik.errors.motherName}
-                    name='motherName'
-                    label='Mother Name'
-                    placeholder=''
-                    onChange={formik.handleChange}
-                  
-                  />
-                  <InputText
-                    value={formik.values.fatherOccupation}
-                    error={formik.errors.fatherOccupation}
-                    name='fatherOccupation'
-                    label='Father Occupation'
-                    placeholder=''
-                    onChange={formik.handleChange}
-                  
-                  />
-
-
-                  <InputText
-                    value={formik.values.motherOccupation}
-                    error={formik.errors.motherOccupation}
-                    name='motherOccupation'
-                    label='Mother Occupation'
-                    onChange={formik.handleChange}
-                    placeholder=''
-                
                   />
                   <InputText
                     value={formik.values.phone}
                     error={formik.errors.phone}
                     name='phone'
-                    label='Phone Number'
+                    label='Phone No'
                     placeholder=''
                     onChange={formik.handleChange}
-                 
                   />
                   <InputText
-                    value={formik.values.nationality}
-                    error={formik.errors.nationality}
-                    name='nationality'
-                    label='Nationality'
+                    value={formik.values.address}
+                    error={formik.errors.address}
+                    name='address'
+                    label='Address'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
-                    value={formik.values.presentAddress}
-                    error={formik.errors.presentAddress}
-                    name='presentAddress'
-                    label='Present Address'
-                    placeholder=''
-                    onChange={formik.handleChange}
-                   
-                  />
-                  <InputText
-                    value={formik.values.permanentAddress}
-                    error={formik.errors.permanentAddress}
-                    name='permanentAddress'
-                    label='Permanent Address'
-                    placeholder=''
-                    onChange={formik.handleChange}
-                  
-                  />
-                 
-                  <InputText
-                    value={formik.values.parentPhoto}
-                    error={formik.errors.parentPhoto}
-                    name='parentPhoto'
-                    label='Parents Photo (150px X 150px)'
+                    value={formik.values.photo}
+                    error={formik.errors.photo}
+                    name='photo'
+                    label='Teacher Photo (150px X 150px)'
                     placeholder=''
                     type={'file'}
                     onChange={formik.handleChange}
-                    accept="image/png, image/jpeg, image/jpg"
-                  
+                    accept='image/png, image/jpeg, image/jpg'
                   />
                 </div>
-              </div>
 
               <div className='flex space-x-2 justify-start mt-10'>
                 <button className='btn-indigo'>
@@ -308,4 +206,4 @@ const AdmintForm = () => {
   );
 };
 
-export default AdmintForm;
+export default AddTeacher;
