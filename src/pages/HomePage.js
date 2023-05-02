@@ -11,6 +11,7 @@ import StudentDetails from '../components/StudentDetails/StudentDetails';
 import AdmintForm from '../components/AdmintForm/AdminForm';
 import StudentPromotion from '../components/StudentPromotion/StudentPromotion';
 import TeacherList from '../components/TeacherList/TeacherList';
+import TeacherDetails from '../components/TeacherDetails/TeacherDetails';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -48,6 +49,10 @@ const HomePage = () => {
       case 'all_teachers':
         dispatch(sidebarToggled())
         return <TeacherList />
+      case 'teacher_details':
+        dispatch(sidebarToggled())
+        return <TeacherDetails />
+
       case 'linked_devices':
         dispatch(sidebarToggled())
         return <LinkedDeivces />
