@@ -195,7 +195,7 @@ const AddTeacher = () => {
                   <span>Discard</span>
                 </button>
                 <button type='submit' className='btn-indigo'>
-                  <span>Add Student</span>
+                  <span>Add Teacher</span>
                 </button>
               </div>
             </form>

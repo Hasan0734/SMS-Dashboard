@@ -3,7 +3,6 @@ export const sidebarTree = [
     key: 1,
     label: 'Dashboard',
     icon: 'fas fa-tachometer-alt',
-    link: '#',
     children: [
       {
         key: 1.1,
