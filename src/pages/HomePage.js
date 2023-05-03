@@ -13,6 +13,8 @@ import StudentPromotion from '../components/StudentPromotion/StudentPromotion';
 import TeacherList from '../components/TeacherList/TeacherList';
 import TeacherDetails from '../components/TeacherDetails/TeacherDetails';
 import AddTeacher from '../components/AddTeacher/AddTeacher';
+import ParentsList from '../components/ParentsList/ParentsList';
+import BookList from '../components/BookList/BookList';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -56,6 +58,12 @@ const HomePage = () => {
       case 'add_teacher':
         dispatch(sidebarToggled())
         return <AddTeacher />
+      case 'parents':
+        dispatch(sidebarToggled())
+        return <ParentsList />
+      case 'all_books':
+        dispatch(sidebarToggled())
+        return <BookList />
 
       case 'linked_devices':
         dispatch(sidebarToggled())
