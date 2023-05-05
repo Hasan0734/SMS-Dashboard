@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import { ProductListDemo, statusColor } from '../../utils/data';
 
-const StudentFeeListTable = () => {
+const ExpenseListTable = () => {
   return (
     <div class='is-scrollbar-hidden min-w-full overflow-x-auto'>
       <table class='is-hoverable w-full text-left'>
@@ -15,24 +15,16 @@ const StudentFeeListTable = () => {
             <th class='whitespace-nowrap rounded-l-lg bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
               ID
             </th>
+            <th class='whitespace-nowrap rounded-l-lg bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
+              EXPENSE TYPE
+            </th>
             <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
               NAME
             </th>
             <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
-              GENDER
+              AMOUNT
             </th>
-            <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
-              PARENTS NAME
-            </th>
-            <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
-              CLASS
-            </th>
-            <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
-              SECTION
-            </th>
-            <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
-              FEES
-            </th>
+
             <th class='whitespace-nowrap bg-slate-200 px-3 py-4 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5'>
               STATUS
             </th>
@@ -59,29 +51,15 @@ const StudentFeeListTable = () => {
               <td className='whitespace-nowrap  px-4 py-4 sm:px-5'>
                 {++index}
               </td>
-              <td class='whitespace-nowrap rounded-l-lg px-4 py-4 sm:px-5 flex items-center space-x-2'>
-                <img
-                  className='h-8 w-8 rounded'
-                  src='https://i.ibb.co/TL2zPNG/IMG-6217-inn-768x768.webp'
-                  alt={data?.name}
-                />
-                <span>{data?.name}</span>
-              </td>
               <td class='whitespace-nowrap px-4 py-4 sm:px-5'>
-                {['Men', 'Women', 'Kids'].sort(() => Math.random() - 0.5)[1]}
-              </td>
-              <td class='whitespace-nowrap  px-4 py-4 sm:px-5'>parents name</td>
-              <td class='whitespace-nowrap  px-4 py-4 sm:px-5'>
                 {
-                  ['One', 'Two', 'Three', 'Four', 'Five'].sort(
+                  ['Salary', 'Unitiliy Expense', 'Transport'].sort(
                     () => Math.random() - 0.5
                   )[1]
                 }
               </td>
-              <td class='whitespace-nowrap  px-4 py-4 sm:px-5'>
-                {['A', 'B', 'C'].sort(() => Math.random() - 0.5)[1]}
-              </td>
-              <td class='whitespace-nowrap  px-4 py-4 sm:px-5'>$20.00</td>
+              <td class='whitespace-nowrap px-4 py-4 sm:px-5'>{data?.name}</td>
+              <td class='whitespace-nowrap px-4 py-4 sm:px-5'>$1000.00</td>
               <td
                 class={`whitespace-nowrap  px-4 py-4 sm:px-5 text-${statusColor['paid']} `}
               >
@@ -113,4 +91,4 @@ const StudentFeeListTable = () => {
   );
 };
 
-export default StudentFeeListTable;
+export default ExpenseListTable;
