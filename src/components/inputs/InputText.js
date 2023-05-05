@@ -9,7 +9,7 @@ const InputText = ({
   ...attributes
 }) => {
 
-  console.log(error)
+
   return (
     <div>
       <label className='block'>

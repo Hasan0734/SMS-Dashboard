@@ -1,9 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
 import InputText from '../inputs/InputText';
-
-import ListboxSelect from '../ui/ListboxSelect';
 import { addStudentSchema } from '../../schema/admintSchema';
+import SelectOption from '../ui/SelectOption';
 
 const classes = [
   { label: 'One', value: 'ONE' },
@@ -25,14 +24,13 @@ const sections = [
   { label: 'D', value: 'D' },
 ];
 
-
 const AdmintForm = () => {
   function addStudentHandler(values, { resetForm }) {
     alert(JSON.stringify(values));
     // resetForm()
   }
 
-  const initialValues={
+  const initialValues = {
     firstName: '',
     lastName: '',
     class: '',
@@ -52,9 +50,9 @@ const AdmintForm = () => {
     nationality: '',
     presentAddress: '',
     permanentAddress: '',
-    parentPhoto: ''
-  }
-  
+    parentPhoto: '',
+  };
+
   return (
     <div className='mt-5 card space-y-4'>
       <div className='border-b border-gray-200 dark:border-gray-500 p-4'>
@@ -66,11 +64,10 @@ const AdmintForm = () => {
           initialValues={initialValues}
           validationSchema={addStudentSchema}
           onSubmit={addStudentHandler}
-        
         >
           {(formik, errors) => (
             <form onSubmit={formik.handleSubmit} className='w-full'>
-            {/* student info */}
+              {/* student info */}
               <div className=''>
                 <h3
                   className='font-semibold text-xl relative 
@@ -86,7 +83,6 @@ const AdmintForm = () => {
                     label='First Name'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.lastName}
@@ -95,41 +91,44 @@ const AdmintForm = () => {
                     label='Last Name'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
 
-                  <ListboxSelect
+                  <SelectOption
                     options={classes}
-                    label='Class'
-                    handleChange={formik.setFieldValue}
+                    title='class'
                     value={formik.values.class}
-                    name='class'
+                    placeholder={'Select Class'}
                     error={formik.errors.class}
-                    placeholder='Please Select Class'
-                  />
-                  <ListboxSelect
-                    options={sections}
-                    label='Section'
                     handleChange={formik.setFieldValue}
-                    value={formik.values.section}
-                    name='section'
-                    error={formik.errors.section}
-                    placeholder='Please Select Section'
+                    name={'class'}
+                    label={true}
                   />
 
-                  <ListboxSelect
+                  <SelectOption
+                    options={sections}
+                    title='Section'
+                    value={formik.values.section}
+                    placeholder={'Select Section'}
+                    error={formik.errors.section}
+                    handleChange={formik.setFieldValue}
+                    name={'section'}
+                    label={true}
+                  />
+
+                  <SelectOption
                     options={[
                       { label: 'Male', value: 'MALE' },
                       { label: 'Female', value: 'FEMALE' },
                     ]}
-                    label='Gender'
-                    handleChange={formik.setFieldValue}
+                    title='Gender'
                     value={formik.values.gender}
-                    name='gender'
+                    placeholder={'Select Gender'}
                     error={formik.errors.gender}
-                    placeholder='Please Select Gender'
+                    handleChange={formik.setFieldValue}
+                    name={'gender'}
+                    label={true}
                   />
-
+                
                   <InputText
                     value={formik.values.DOB}
                     error={formik.errors.DOB}
@@ -138,7 +137,6 @@ const AdmintForm = () => {
                     type='date'
                     placeholder='dd / mm / yyyy'
                     onChange={formik.handleChange}
-                 
                   />
                   <InputText
                     value={formik.values.roll}
@@ -146,12 +144,9 @@ const AdmintForm = () => {
                     name='roll'
                     label='Roll'
                     placeholder=''
-                    type="number"
+                    type='number'
                     onChange={formik.handleChange}
-                 
                   />
-
-
 
                   <InputText
                     value={formik.values.admissionNo}
@@ -159,9 +154,8 @@ const AdmintForm = () => {
                     name='admissionNo'
                     label='Admission No'
                     placeholder=''
-                    type="number"
+                    type='number'
                     onChange={formik.handleChange}
-                   
                   />
                   <InputText
                     value={formik.values.religion}
@@ -170,7 +164,6 @@ const AdmintForm = () => {
                     label='Religion'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.email}
@@ -179,7 +172,6 @@ const AdmintForm = () => {
                     label='E-mail'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.studentPhoto}
@@ -189,8 +181,7 @@ const AdmintForm = () => {
                     placeholder=''
                     type={'file'}
                     onChange={formik.handleChange}
-                    accept="image/png, image/jpeg, image/jpg"
-                  
+                    accept='image/png, image/jpeg, image/jpg'
                   />
                 </div>
               </div>
@@ -210,7 +201,6 @@ const AdmintForm = () => {
                     label='Father Name'
                     placeholder=''
                     onChange={formik.handleChange}
-                 
                   />
                   <InputText
                     value={formik.values.motherName}
@@ -219,7 +209,6 @@ const AdmintForm = () => {
                     label='Mother Name'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.fatherOccupation}
@@ -228,9 +217,7 @@ const AdmintForm = () => {
                     label='Father Occupation'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
-
 
                   <InputText
                     value={formik.values.motherOccupation}
@@ -239,7 +226,6 @@ const AdmintForm = () => {
                     label='Mother Occupation'
                     onChange={formik.handleChange}
                     placeholder=''
-                
                   />
                   <InputText
                     value={formik.values.phone}
@@ -248,7 +234,6 @@ const AdmintForm = () => {
                     label='Phone Number'
                     placeholder=''
                     onChange={formik.handleChange}
-                 
                   />
                   <InputText
                     value={formik.values.nationality}
@@ -257,7 +242,6 @@ const AdmintForm = () => {
                     label='Nationality'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
                   <InputText
                     value={formik.values.presentAddress}
@@ -266,7 +250,6 @@ const AdmintForm = () => {
                     label='Present Address'
                     placeholder=''
                     onChange={formik.handleChange}
-                   
                   />
                   <InputText
                     value={formik.values.permanentAddress}
@@ -275,9 +258,8 @@ const AdmintForm = () => {
                     label='Permanent Address'
                     placeholder=''
                     onChange={formik.handleChange}
-                  
                   />
-                 
+
                   <InputText
                     value={formik.values.parentPhoto}
                     error={formik.errors.parentPhoto}
@@ -286,8 +268,7 @@ const AdmintForm = () => {
                     placeholder=''
                     type={'file'}
                     onChange={formik.handleChange}
-                    accept="image/png, image/jpeg, image/jpg"
-                  
+                    accept='image/png, image/jpeg, image/jpg'
                   />
                 </div>
               </div>

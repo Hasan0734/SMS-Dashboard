@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { sidebarToggled } from '../features/global/globalSlice';
 import StudentList from '../components/StudentList/StudentList';
 import StudentDetails from '../components/StudentDetails/StudentDetails';
-import AdmintForm from '../components/AdmintForm/AdminForm';
+import AdmintForm from '../components/AdmintForm/AdmintForm';
 import StudentPromotion from '../components/StudentPromotion/StudentPromotion';
 import TeacherList from '../components/TeacherList/TeacherList';
 import TeacherDetails from '../components/TeacherDetails/TeacherDetails';

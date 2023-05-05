@@ -1,34 +1,46 @@
-import React from 'react'
+import React from 'react';
 
 const SelectOption = ({
-  options,
-  optionTitle,
-  optionValue,
+  options = [],
   title,
   value,
   error,
   className = '',
   label,
+  name,
+  handleChange,
+  placeholder,
   ...attributes
 }) => {
-  return (
-    <div className='space-y-1 text-left'>
-      {label && (
-        <label className='text-sm uppercase font-semibold text-gray-500 ml-2'>
-          {' '}
-          {title}
-        </label>
-      )}
-      <select className={`input ${className}`} value={value} {...attributes}>
-        <option value=''>Select One</option>
-        {options.map((option) => (
-          <option key={option[optionValue]} value={option[optionValue]}>
-            {option[optionTitle]}
-          </option>
-        ))}
-      </select>
-    </div>
-  )
-}
 
-export default SelectOption
+  const onChange = (e) => {
+    handleChange(name, e.target.value, true)
+  };
+
+  return (
+    <div>
+      <label class='block'>
+        {label && <span>{title}</span>}
+        <select
+          onChange={onChange}
+          class={`form-select mt-1.5 w-full rounded-lg border border-slate-300
+          bg-white px-3 py-2 hover:border-slate-400 focus:border-primary 
+          dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 
+          dark:focus:border-accent ${className}`}
+          defaultValue={value}
+          {...attributes}
+        >
+          <option value=''>{placeholder}</option>
+          {options?.map((option, i) => (
+            <option key={i++} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
+      {error && <span className='text-tiny+ text-error'>{error}</span>}
+    </div>
+  );
+};
+
+export default SelectOption;

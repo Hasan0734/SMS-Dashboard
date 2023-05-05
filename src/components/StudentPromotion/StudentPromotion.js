@@ -1,9 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import ListboxSelect from '../ui/ListboxSelect';
-
-
-
+import SelectOption from '../ui/SelectOption';
 
 const seassions = [
   { label: '2021-2022', value: '2021-2022' },
@@ -12,19 +9,18 @@ const seassions = [
   { label: '2018-2019', value: '2018-2019' },
 ];
 
-
 const classes = [
-    { label: 'One', value: 'ONE' },
-    { label: 'Two', value: 'TWO' },
-    { label: 'Three', value: 'THREE' },
-    { label: 'Four', value: 'FOUR' },
-    { label: 'Five', value: 'FIVE' },
-    { label: 'Six', value: 'SIX' },
-    { label: 'Seven', value: 'SEVEN' },
-    { label: 'Eight', value: 'EIGHT' },
-    { label: 'Nine', value: 'NINE' },
-    { label: 'Ten', value: 'TEN' },
-  ];
+  { label: 'One', value: 'ONE' },
+  { label: 'Two', value: 'TWO' },
+  { label: 'Three', value: 'THREE' },
+  { label: 'Four', value: 'FOUR' },
+  { label: 'Five', value: 'FIVE' },
+  { label: 'Six', value: 'SIX' },
+  { label: 'Seven', value: 'SEVEN' },
+  { label: 'Eight', value: 'EIGHT' },
+  { label: 'Nine', value: 'NINE' },
+  { label: 'Ten', value: 'TEN' },
+];
 const StudentPromotion = () => {
   const handleSearch = (values, { resetForm }) => {
     alert(JSON.stringify(values));
@@ -58,43 +54,48 @@ const StudentPromotion = () => {
                   Student Information
                 </h3>
                 <div className=' gap-8 mt-8 grid grid-cols-3 xl:grid-cols-4'>
-                  <ListboxSelect
+                
+                  <SelectOption
                     options={seassions}
-                    label='Current Seassion'
-                    handleChange={formik.setFieldValue}
+                    title='Current Seassion'
                     value={formik.values.currentSession}
-                    name='currentSession'
+                    placeholder={'Select current Session'}
                     error={formik.errors.currentSession}
-                    placeholder='Select current Session'
+                    handleChange={formik.setFieldValue}
+                    name={'currentSession'}
+                    label={true}
                   />
-                  <ListboxSelect
+                  <SelectOption
                     options={seassions}
-                    label='Promote to Seassion'
-                    handleChange={formik.setFieldValue}
+                    title='Promote to Seassion'
                     value={formik.values.promoteSession}
-                    name='promoteSession'
+                    placeholder={'Select Promote to Seassion'}
                     error={formik.errors.promoteSession}
-                    placeholder='Select Promote to Seassion'
-                  />
-
-                  <ListboxSelect
-                    options={classes}
-                    label='Promotion Class'
                     handleChange={formik.setFieldValue}
+                    name={'promoteSession'}
+                    label={true}
+                  />
+                  <SelectOption
+                    options={classes}
+                    title='Promotion Class'
                     value={formik.values.promotionClass}
-                    name='promotionClass'
+                    placeholder={'Select Promotion Class'}
                     error={formik.errors.promotionClass}
-                    placeholder='Select Promotion Class'
-                  />
-                  <ListboxSelect
-                    options={classes}
-                    label='Promote to Class'
                     handleChange={formik.setFieldValue}
-                    value={formik.values.promoteClass}
-                    name='promoteClass'
-                    error={formik.errors.promoteClass}
-                    placeholder='Select Promote to Class'
+                    name={'promotionClass'}
+                    label={true}
                   />
+                  <SelectOption
+                    options={classes}
+                    title='Promote to Class'
+                    value={formik.values.promoteClass}
+                    placeholder={'Select Promote to Class'}
+                    error={formik.errors.promoteClass}
+                    handleChange={formik.setFieldValue}
+                    name={'promoteClass'}
+                    label={true}
+                  />
+            
                 </div>
               </div>
 

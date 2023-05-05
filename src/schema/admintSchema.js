@@ -18,8 +18,8 @@ const addStudentSchema = yup.object().shape({
   motherOccupation: yup.string().required('Mother Occupation is required!'),
   phone: yup.string().required('Phone numbre is required!'),
   nationality: yup.string().required('Nationality is required!'),
-  presentAddress: yup.number().required('Present Address is required!'),
-  permanentAddress: yup.number().required('Permanent Address is required!'),
+  presentAddress: yup.string().required('Present Address is required!'),
+  permanentAddress: yup.string().required('Permanent Address is required!'),
   parentPhoto: yup.mixed()
   .required('Parent Photo is Required')
 //   .test('fileSize', "The file is too large", (value) => {return value && value[0].sienter <= 2000000})
@@ -51,8 +51,8 @@ const updateStudentSchema = yup.object().shape({
   motherOccupation: yup.string().optional(),
   phone: yup.string().optional(),
   nationality: yup.string().optional(),
-  presentAddress: yup.number().optional(),
-  permanentAddress: yup.number().optional(),
+  presentAddress: yup.string().optional(),
+  permanentAddress: yup.string().optional(),
   parentPhoto: yup.string().optional(),
 });
 

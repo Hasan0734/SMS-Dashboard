@@ -2,9 +2,8 @@ import React from 'react';
 import { Formik } from 'formik';
 import InputText from '../inputs/InputText';
 
-import ListboxSelect from '../ui/ListboxSelect';
-import { addTeacherSchema } from '../../schema/addTeacherSchema';
 import { addBookSchema } from '../../schema/addBookSchema';
+import SelectOption from '../ui/SelectOption';
 
 const classes = [
   { label: 'One', value: 'ONE' },
@@ -18,8 +17,6 @@ const classes = [
   { label: 'Nine', value: 'NINE' },
   { label: 'Ten', value: 'TEN' },
 ];
-
-
 
 const AddBook = () => {
   function addStudentHandler(values, { resetForm }) {
@@ -35,7 +32,7 @@ const AddBook = () => {
     publishDate: '',
     uploadDate: '',
     IDNo: '',
-    photo: ''
+    photo: '',
   };
 
   return (
@@ -61,19 +58,21 @@ const AddBook = () => {
                   placeholder=''
                   onChange={formik.handleChange}
                 />
-                <ListboxSelect
+
+                <SelectOption
                   options={[
                     { label: 'Math', value: 'MATH' },
                     { label: 'English', value: 'ENGLISH' },
                     { label: 'BANGLA', value: 'BANGLA' },
                     { label: 'Science', value: 'SCIENCE' },
                   ]}
-                  label='Subject'
-                  handleChange={formik.setFieldValue}
+                  title='Subject'
                   value={formik.values.subject}
-                  name='subject'
+                  placeholder={'Select Subject'}
                   error={formik.errors.subject}
-                  placeholder='Select Subject'
+                  handleChange={formik.setFieldValue}
+                  name={'subject'}
+                  label={true}
                 />
 
                 <InputText
@@ -85,26 +84,26 @@ const AddBook = () => {
                   onChange={formik.handleChange}
                 />
 
-                <ListboxSelect
+                <SelectOption
                   options={classes}
-                  label='Class'
-                  handleChange={formik.setFieldValue}
+                  title='Class'
                   value={formik.values.class}
-                  name='class'
+                  placeholder={'Please Select Class'}
                   error={formik.errors.class}
-                  placeholder='Please Select Class'
+                  handleChange={formik.setFieldValue}
+                  name={'class'}
+                  label={true}
                 />
-                  <InputText
+                <InputText
                   value={formik.values.publishDate}
                   error={formik.errors.publishDate}
                   name='publishDate'
                   label='Publishing Year'
-                  type="number"
+                  type='number'
                   placeholder=''
                   onChange={formik.handleChange}
                 />
 
-                          
                 <InputText
                   value={formik.values.uploadDate}
                   error={formik.errors.uploadDate}
