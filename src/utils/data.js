@@ -142,8 +142,7 @@ export const sidebarTree = [
         label: 'Add New Class',
         icon: 'fas fa-key',
         link: 'add_new_class',
-      }
-
+      },
     ],
   },
   {
@@ -182,7 +181,7 @@ export const sidebarTree = [
         icon: 'fa-regular fa-user',
         link: 'exam_grades',
       },
-    ]
+    ],
   },
   {
     key: 12,
@@ -215,7 +214,6 @@ export const sidebarTree = [
     link: '#',
   },
 ];
-
 
 export const profileTree = [
   {
@@ -942,6 +940,7 @@ export const statusColor = {
   paid: 'success',
   pending: 'warning',
   failed: 'error',
+  due: 'error',
 };
 // Product Image Upload Configuration file
 export const drugAndDropConfig = {

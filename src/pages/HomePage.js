@@ -16,6 +16,8 @@ import AddTeacher from '../components/AddTeacher/AddTeacher';
 import ParentsList from '../components/ParentsList/ParentsList';
 import BookList from '../components/BookList/BookList';
 import AddBook from '../components/AddBook/AddBook';
+import StudentFeeList from '../components/StudentFeeList/StudentFeeList';
+import CreateStudentPayment from '../components/CreateStudentPayment/CreateStudentPayment';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -68,6 +70,12 @@ const HomePage = () => {
       case 'add_book':
         dispatch(sidebarToggled())
         return <AddBook />
+      case 'fees_collection':
+        dispatch(sidebarToggled())
+        return <StudentFeeList />
+      case 'create_student_payment':
+        dispatch(sidebarToggled())
+        return <CreateStudentPayment />
 
       case 'linked_devices':
         dispatch(sidebarToggled())
