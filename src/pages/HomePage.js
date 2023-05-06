@@ -22,6 +22,7 @@ import ExpenseList from '../components/ExpenseList/ExpenseList';
 import AddExpense from '../components/AddExpense/AddExpense';
 import ClassList from '../components/ClassList/ClassList';
 import AddNewClass from '../components/AddNewClass/AddNewClass';
+import SubjectCard from '../components/SubjectCard/SubjectCard';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -92,6 +93,9 @@ const HomePage = () => {
       case 'add_new_class':
         dispatch(sidebarToggled())
         return <AddNewClass />
+      case 'subject':
+        dispatch(sidebarToggled())
+        return <SubjectCard />
 
       case 'linked_devices':
         dispatch(sidebarToggled())

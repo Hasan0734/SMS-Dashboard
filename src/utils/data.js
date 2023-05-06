@@ -149,25 +149,24 @@ export const sidebarTree = [
     key: 8,
     label: 'Subject',
     icon: 'far fa-paste',
-    link: '#',
+    link: 'subject',
   },
   {
     key: 9,
     label: 'Class Routine',
     icon: 'fas fa-calendar-day',
-    link: '#',
+    link: 'class_routine',
   },
   {
     key: 10,
     label: 'Attendance',
     icon: 'fas fa-calendar-check',
-    link: '#',
+    link: 'attendance',
   },
   {
     key: 11,
     label: 'Exam',
     icon: 'fas fa-graduation-cap',
-    link: '#',
     children: [
       {
         key: 11.1,
@@ -187,31 +186,31 @@ export const sidebarTree = [
     key: 12,
     label: 'Transport',
     icon: 'fas fa-car',
-    link: '#',
+    link: 'transport',
   },
   {
     key: 13,
     label: 'Hostel',
     icon: 'fas fa-hotel',
-    link: '#',
+    link: 'hostel',
   },
   {
     key: 14,
     label: 'Notice',
     icon: 'fas fa-map',
-    link: '#',
+    link: 'notice',
   },
   {
     key: 11,
     label: 'Message',
     icon: 'fas fa-envelope',
-    link: '#',
+    link: 'message',
   },
   {
     key: 11,
     label: 'Account Details',
     icon: 'fas fa-user',
-    link: '#',
+    link: 'account_details',
   },
 ];
 
