@@ -29,6 +29,8 @@ import AddExamSchedule from '../components/AddExamSchedule/AddExamSchedule';
 import ExamGardes from '../components/ExamGardes/ExamGardes';
 import TransportList from '../components/TransportList/TransportList';
 import AddTransport from '../components/AddTransport/AddTransport';
+import HostelList from '../components/HostelList/HostelList';
+import AddHostelRoom from '../components/AddHostelRoom/AddHostelRoom';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -120,6 +122,12 @@ const HomePage = () => {
       case 'add_transport':
         dispatch(sidebarToggled())
         return <AddTransport />
+      case 'hostel_rooms':
+        dispatch(sidebarToggled())
+        return <HostelList />
+      case 'add_hostel_rooms':
+        dispatch(sidebarToggled())
+        return <AddHostelRoom />
 
       case 'linked_devices':
         dispatch(sidebarToggled())

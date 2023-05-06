@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import { ProductListDemo } from '../../utils/data';
 
-const TransportListTable = () => {
+const HostelListTable = () => {
   return (
     <div class='is-scrollbar-hidden min-w-full overflow-x-auto'>
       <table class='is-hoverable w-full text-left'>
@@ -74,4 +74,4 @@ const TransportListTable = () => {
   );
 };
 
-export default TransportListTable;
+export default HostelListTable;

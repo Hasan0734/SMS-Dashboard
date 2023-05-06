@@ -205,13 +205,26 @@ export const sidebarTree = [
         icon: 'fa-regular fa-user',
         link: 'add_transport',
       },
-    ]
+    ],
   },
   {
     key: 13,
     label: 'Hostel',
     icon: 'fas fa-hotel',
-    link: 'hostel',
+    children: [
+      {
+        key: 13.1,
+        label: 'Hostel Rooms',
+        icon: 'fa-regular fa-user',
+        link: 'hostel_rooms',
+      },
+      {
+        key: 13.2,
+        label: 'Add Rooms',
+        icon: 'fa-regular fa-user',
+        link: 'add_hostel_rooms',
+      },
+    ],
   },
   {
     key: 14,
