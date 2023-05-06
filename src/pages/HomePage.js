@@ -24,6 +24,9 @@ import ClassList from '../components/ClassList/ClassList';
 import AddNewClass from '../components/AddNewClass/AddNewClass';
 import SubjectCard from '../components/SubjectCard/SubjectCard';
 import ClassRoutine from '../components/ClassRoutine/ClassRoutine';
+import ExamScheduleList from '../components/ExamScheduleList/ExamScheduleList';
+import AddExamSchedule from '../components/AddExamSchedule/AddExamSchedule';
+import ExamGardes from '../components/ExamGardes/ExamGardes';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -100,6 +103,15 @@ const HomePage = () => {
       case 'class_routine':
         dispatch(sidebarToggled())
         return <ClassRoutine />
+      case 'exam_schedule':
+        dispatch(sidebarToggled())
+        return <ExamScheduleList />
+      case 'add_exam_schedule':
+        dispatch(sidebarToggled())
+        return <AddExamSchedule />
+      case 'exam_grades':
+        dispatch(sidebarToggled())
+        return <ExamGardes />
 
       case 'linked_devices':
         dispatch(sidebarToggled())

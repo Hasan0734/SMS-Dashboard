@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import InputText from '../inputs/InputText';
 import SelectOption from '../ui/SelectOption';
-import { addSubjectSchema } from '../../schema/addSubjectSchema';
+import { addExamScheduleSchema } from '../../schema/addExamScheduleSchema';
 
 const classes = [
   { label: 'One', value: 'ONE' },
@@ -23,39 +23,41 @@ const subjectTypes = [
   { label: 'Practical', value: 'PRACTICAL' },
 ];
 
-const AddClassRoutineForm = () => {
+const AddExamSchedule = () => {
   const initialValues = {
-    subjectName: '',
+    examName: '',
     subjectType: '',
     class: '',
-    subjectCode: '',
+    section: '',
+    time: '',
+    date: '',
   };
 
-  const addClassHandler = (values, { resetForm }) => {
+  const addExamHandler = (values, { resetForm }) => {
     alert(JSON.stringify(values));
     // resetForm()
   };
 
   return (
-    <div className='card p-4 w-full xl:w-[450px]'>
-      <div className='border-b border-gray-200 dark:border-gray-500 pb-4'>
-        <h2 className='font-semibold text-lg'>Manage Class Routine</h2>
+    <div className='mt-5 card space-y-4'>
+      <div className='border-b border-gray-200 dark:border-gray-500 p-4'>
+        <h2 className='font-semibold text-lg'>Add New Exam</h2>
       </div>
-      <div className='mt-4'>
+      <div className='p-5'>
         {/* Setup Fromik */}
         <Formik
           initialValues={initialValues}
-          validationSchema={addSubjectSchema}
-          onSubmit={addClassHandler}
+          validationSchema={addExamScheduleSchema}
+          onSubmit={addExamHandler}
         >
           {(formik) => (
             <form onSubmit={formik.handleSubmit} className='w-full'>
-              <div className='gap-5 grid grid-cols-1'>
+              <div className='gap-8 grid grid-cols-3 xl:grid-cols-4'>
                 <InputText
-                  value={formik.values.subjectName}
-                  error={formik.errors.subjectName}
-                  name='subjectName'
-                  label='Subject Name'
+                  value={formik.values.examName}
+                  error={formik.errors.examName}
+                  name='examName'
+                  label='Exam Name'
                   onChange={formik.handleChange}
                 />
 
@@ -69,25 +71,50 @@ const AddClassRoutineForm = () => {
                   name={'subjectType'}
                   label={true}
                 />
+
                 <SelectOption
                   options={classes}
-                  title='Class'
+                  title='Select Class'
                   value={formik.values.class}
-                  placeholder={'Please Select Class'}
+                  placeholder={'Please select class'}
                   error={formik.errors.class}
                   handleChange={formik.setFieldValue}
                   name={'class'}
                   label={true}
                 />
-
-                <InputText
-                  value={formik.values.subjectCode}
-                  error={formik.errors.subjectCode}
-                  name='subjectCode'
-                  label='Subject Code'
-                  placeholder=''
-                  onChange={formik.handleChange}
+                <SelectOption
+                  options={[
+                    { label: 'A', value: 'A' },
+                    { label: 'B', value: 'B' },
+                    { label: 'C', value: 'C' },
+                  ]}
+                  title='Select Section'
+                  value={formik.values.class}
+                  placeholder={'Please select section'}
+                  error={formik.errors.class}
+                  handleChange={formik.setFieldValue}
+                  name={'section'}
+                  label={true}
                 />
+
+               
+                  <InputText
+                    value={formik.values.time}
+                    error={formik.errors.time}
+                    name='time'
+                    label='Time'
+                    type="time"
+                    onChange={formik.handleChange}
+                  />
+                  <InputText
+                    value={formik.values.date}
+                    error={formik.errors.date}
+                    name='date'
+                    label='Date'
+                    type="date"
+                    onChange={formik.handleChange}
+                  />
+                
               </div>
 
               <div className='flex space-x-2  mt-7'>
@@ -106,4 +133,4 @@ const AddClassRoutineForm = () => {
   );
 };
 
-export default AddClassRoutineForm;
+export default AddExamSchedule;

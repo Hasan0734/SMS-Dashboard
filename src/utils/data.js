@@ -176,6 +176,12 @@ export const sidebarTree = [
       },
       {
         key: 11.2,
+        label: 'Add Exam Schedule',
+        icon: 'fa-regular fa-user',
+        link: 'add_exam_schedule',
+      },
+      {
+        key: 11.3,
         label: 'Exam Grades',
         icon: 'fa-regular fa-user',
         link: 'exam_grades',
