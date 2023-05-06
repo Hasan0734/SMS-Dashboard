@@ -4,12 +4,10 @@ import { Link, useLocation } from 'react-router-dom';
 
 const SidebarListItem = ({ node }) => {
   const search = useLocation().search;
-
   const currentTab = new URLSearchParams(search).get('tab');
-
   const [childVisible, setChildVisiblity] = React.useState(false);
   const hasChild = node?.children?.length ? true : false;
-
+  const subRef = React.useRef();
 
   return (
     <li>
@@ -21,12 +19,12 @@ const SidebarListItem = ({ node }) => {
             childVisible && 'text-slate-800 font-semibold dark:text-navy-50'
           }`}
         >
-            <span className='space-x-2'>
-              <i
-                className={`${node.icon} pr-2 text-primary dark:text-accent-light`}
-              />
-              {node.label}
-            </span>       
+          <span className='space-x-2'>
+            <i
+              className={`${node.icon} pr-2 text-primary dark:text-accent-light`}
+            />
+            {node.label}
+          </span>
         </Link>
       ) : (
         <span
@@ -60,10 +58,18 @@ const SidebarListItem = ({ node }) => {
         </span>
       )}
 
-      {hasChild && childVisible && (
-        <ul className=''>
+      {hasChild  && (
+        <ul
+          ref={subRef}
+          className={` overflow-hidden transition-all duration-500
+     ${childVisible ? 'my-2' : ''}`}
+          style={{
+            height: childVisible ? `${subRef.current?.scrollHeight}px` : '0px',
+          }}
+        >
           {node.children.map((nastedNode) => (
-            <li key={nastedNode.key}>
+
+            <li key={nastedNode.key} className='duration-300'>
               <Link
                 to={`/?tab=${nastedNode.link}`}
                 className={`flex items-center justify-between p-2 text-base tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4 ${
@@ -78,6 +84,7 @@ const SidebarListItem = ({ node }) => {
                 </div>
               </Link>
             </li>
+
           ))}
         </ul>
       )}
