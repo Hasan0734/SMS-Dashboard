@@ -1,14 +1,14 @@
 import React from 'react';
-import StudentListHeader from './StudentFeeListHeader';
-import StudentListTable from './StudentFeeListTable';
-import StudentListTableFooter from './StudentFeeListTableFooter';
+import StudentFeeListHeader from './StudentFeeListHeader';
+import StudentFeeListTable from './StudentFeeListTable';
+import StudentFeeListTableFooter from './StudentFeeListTableFooter';
 
 const StudentFeeList = () => {
   return (
     <div className='mt-5 card p-4 space-y-4'>
-      <StudentListHeader />
-      <StudentListTable />
-      <StudentListTableFooter />
+      <StudentFeeListHeader />
+      <StudentFeeListTable />
+      <StudentFeeListTableFooter />
     </div>
   );
 };
