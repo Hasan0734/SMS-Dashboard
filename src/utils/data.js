@@ -192,7 +192,20 @@ export const sidebarTree = [
     key: 12,
     label: 'Transport',
     icon: 'fas fa-car',
-    link: 'transport',
+    children: [
+      {
+        key: 12.1,
+        label: 'Transport List',
+        icon: 'fa-regular fa-user',
+        link: 'all_transport',
+      },
+      {
+        key: 12.2,
+        label: 'Add Transport',
+        icon: 'fa-regular fa-user',
+        link: 'add_transport',
+      },
+    ]
   },
   {
     key: 13,
