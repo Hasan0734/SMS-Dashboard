@@ -23,6 +23,7 @@ import AddExpense from '../components/AddExpense/AddExpense';
 import ClassList from '../components/ClassList/ClassList';
 import AddNewClass from '../components/AddNewClass/AddNewClass';
 import SubjectCard from '../components/SubjectCard/SubjectCard';
+import ClassRoutine from '../components/ClassRoutine/ClassRoutine';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -96,6 +97,9 @@ const HomePage = () => {
       case 'subject':
         dispatch(sidebarToggled())
         return <SubjectCard />
+      case 'class_routine':
+        dispatch(sidebarToggled())
+        return <ClassRoutine />
 
       case 'linked_devices':
         dispatch(sidebarToggled())
