@@ -62,7 +62,7 @@ const SidebarListItem = ({ node }) => {
         <ul
           ref={subRef}
           className={` overflow-hidden transition-all duration-500
-     ${childVisible ? 'my-2' : ''}`}
+        ${childVisible ? 'my-2' : ''}`}
           style={{
             height: childVisible ? `${subRef.current?.scrollHeight}px` : '0px',
           }}
