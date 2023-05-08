@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const SidebarListItem = ({ node }) => {
@@ -9,15 +9,20 @@ const SidebarListItem = ({ node }) => {
   const hasChild = node?.children?.length ? true : false;
   const subRef = React.useRef();
 
+
+  const handleIsVisible = () => {
+  
+    setChildVisiblity((v) => !v);
+  };
+
   return (
     <li>
       {!hasChild ? (
         <Link
           to={!hasChild && `/?tab=${node.link}`}
-          onClick={() => setChildVisiblity((v) => !v)}
-          className={`flex items-center justify-between py-3 text-base tracking-wide text-slate-500 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50 ${
-            childVisible && 'text-slate-800 font-semibold dark:text-navy-50'
-          }`}
+          className={`flex items-center justify-between py-3 text-base tracking-wide text-slate-500 outline-none
+           transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 
+           dark:hover:text-navy-50 `}
         >
           <span className='space-x-2'>
             <i
@@ -28,8 +33,15 @@ const SidebarListItem = ({ node }) => {
         </Link>
       ) : (
         <span
-          onClick={() => setChildVisiblity((v) => !v)}
-          className={`cursor-pointer flex items-center justify-between py-3 text-base tracking-wide text-slate-500 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50 `}
+          onClick={handleIsVisible}
+          className={`cursor-pointer flex items-center justify-between py-3 text-base 
+          tracking-wide text-slate-500 outline-none transition-[color,padding-left]
+           duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50 
+           ${
+             childVisible
+               ? 'text-slate-800 font-semibold dark:text-navy-50'
+               : ''
+           }`}
         >
           <span className='space-x-2'>
             <i
@@ -58,17 +70,16 @@ const SidebarListItem = ({ node }) => {
         </span>
       )}
 
-      {hasChild  && (
+      {hasChild && (
         <ul
           ref={subRef}
           className={` overflow-hidden transition-all duration-500
-        ${childVisible ? 'my-2' : ''}`}
+       `}
           style={{
-            height: childVisible ? `${subRef.current?.scrollHeight}px` : '0px',
+            height:  childVisible ? `${subRef.current?.scrollHeight}px`: '0px',                             
           }}
         >
           {node.children.map((nastedNode) => (
-
             <li key={nastedNode.key} className='duration-300'>
               <Link
                 to={`/?tab=${nastedNode.link}`}
@@ -84,7 +95,6 @@ const SidebarListItem = ({ node }) => {
                 </div>
               </Link>
             </li>
-
           ))}
         </ul>
       )}

@@ -16,7 +16,7 @@ const AddExamGardeForm = () => {
     comments: '',
   };
 
-  const addClassHandler = (values, { resetForm }) => {
+  const addGardeHandler = (values, { resetForm }) => {
     alert(JSON.stringify(values));
     // resetForm()
   };
@@ -31,7 +31,7 @@ const AddExamGardeForm = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={addGradeSchema}
-          onSubmit={addClassHandler}
+          onSubmit={addGardeHandler}
         >
           {(formik) => (
             <form onSubmit={formik.handleSubmit} className='w-full'>

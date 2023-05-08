@@ -31,6 +31,7 @@ import TransportList from '../components/TransportList/TransportList';
 import AddTransport from '../components/AddTransport/AddTransport';
 import HostelList from '../components/HostelList/HostelList';
 import AddHostelRoom from '../components/AddHostelRoom/AddHostelRoom';
+import Notice from '../components/Notice/Notice';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -128,6 +129,9 @@ const HomePage = () => {
       case 'add_hostel_rooms':
         dispatch(sidebarToggled())
         return <AddHostelRoom />
+      case 'notice':
+        dispatch(sidebarToggled())
+        return <Notice />
 
       case 'linked_devices':
         dispatch(sidebarToggled())
