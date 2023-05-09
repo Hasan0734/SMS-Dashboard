@@ -7,7 +7,7 @@ import NotFound from './pages/NotFound'
 import useAuthCheck from './hooks/useAuthCheck'
 import Loader from './components/ui/Loader'
 import PrivateRoute from './AuthRoutes/PrivateRoute'
-import PublicRoute from './AuthRoutes/PublicRoute'
+import PublicRoute from './AuthRoutes/PublicRoute';
 
 const App = () => {
   const authCheck = useAuthCheck()
@@ -25,6 +25,7 @@ const App = () => {
               </PublicRoute>
             }
           />
+  
           <Route
             path='/login'
             element={

@@ -32,6 +32,7 @@ import AddTransport from '../components/AddTransport/AddTransport';
 import HostelList from '../components/HostelList/HostelList';
 import AddHostelRoom from '../components/AddHostelRoom/AddHostelRoom';
 import Notice from '../components/Notice/Notice';
+import Attendance from '../components/Attendance/Attendance';
 
 const HomePage = () => {
   const search = useLocation().search;
@@ -108,6 +109,9 @@ const HomePage = () => {
       case 'class_routine':
         dispatch(sidebarToggled())
         return <ClassRoutine />
+      case 'attendance':
+        dispatch(sidebarToggled())
+        return <Attendance />
       case 'exam_schedule':
         dispatch(sidebarToggled())
         return <ExamScheduleList />
